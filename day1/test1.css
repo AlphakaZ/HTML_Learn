@@ -1,0 +1,10 @@
+p {color:green; line-height:1.5;}
+
+p#xyz	{color:blue;}       /*要素を特定したidセレクタ*/
+#xyz	{color:green; font-weight: 600;}      /*要素を特定しないidセレクタ*/
+p.abc	{color:yellow;}     /*要素を特定したclassセレクタ*/
+.abc	{color:orange;}     /*要素を特定しないclassセレクタ*/
+p	{color:black;}              /*タイプセレクタ*/
+h1  {color:red;}
+h2 {color:blue;}
+*	{color:purple;}          /*全称セレクタ*/
