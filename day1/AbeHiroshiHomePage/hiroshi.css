@@ -3,7 +3,7 @@ body#main-content{
     margin: 0 auto;
     color: #000000;
     background-color: #f8dce0;
-    background-image: url("back.jpg")
+    background-image: url("img/back.jpg")
   }
   #header{
     width: 800px;
