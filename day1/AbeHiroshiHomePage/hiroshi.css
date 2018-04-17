@@ -1,12 +1,10 @@
 body#main-content{
-    width: 800px;
     margin: 0 auto;
     color: #000000;
     background-color: #f8dce0;
     background-image: url("img/back.jpg")
   }
   #header{
-    width: 800px;
     text-align: center;
   }
   #main{
@@ -26,6 +24,12 @@ body#main-content{
   img{
       text-align: center;
   }
+.main-content{
+    width:800px;
+  }
+.sub-content{
+    width: 600px;
+}
 
   p#profile{
       width:300px;
@@ -50,6 +54,9 @@ body#main-content{
       border-bottom-width: thin;
       font-weight: 800;
   }
+  #award-list{
+    font-weight: 600;
+  }
   table#movie-list{
       padding-left: 80px;
       padding-top: 30px;
@@ -62,7 +69,7 @@ body#side-bar{
 }    
 ul#menu-list{
     line-height: 60px;
-    
+    list-style: none;
 }
 
 a{
