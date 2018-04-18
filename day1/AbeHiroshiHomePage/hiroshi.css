@@ -12,6 +12,7 @@ body#main-content{
     float: right;
     padding-right:0px;
     padding: left 20;
+
   }
   #side{
     width: 180px;
@@ -61,6 +62,8 @@ body#main-content{
       padding-left: 80px;
       padding-top: 30px;
       font-weight: 800;
+      border-bottom: solid #000000;
+      border-bottom-width: thin;
     }
 body#side-bar{
     background-color: rgb(236, 235, 254);
@@ -74,4 +77,14 @@ ul#menu-list{
 
 a{
     color: blue;
+}
+
+table th#movie-day{
+    width: 200px;
+}
+table th#movie-name{
+    width: 300px;
+}
+table th#movie-other{
+    width: 150px;
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="form.css">
+        <title>VanillaJS TodoMVC</title>
+        <script src="js/task.js"></script>
+    </head>
+    <body>
+        <header id="header">
+            todos
+        </header>
+        <main id="main">
+            <form id="task">
+                <input type="text" class="form-box" />
+            </form>
+        </main>
+        <footer id="footer">
+            Double-click to edit a todo<br>
+            Created by Oscar Godson<br>
+            Refactored by Christoph Burgmer<br>
+            Part of TodoMVC<br>
+        </footer>
+    </body>
+    <script>
+        var mainForm = document.getElementById("main");
+        //タスクリストの保持
+        var termList = ['こんにちは','おはよう','こんばんは'];
+        termList.forEach(
+            function(term){
+                var item = document.createElement('form');
+                item.type = "text";
+                item.className = "form-box";
+                item.addEventListener("click",function(){console.log(term);});
+                item.addEventListener("dblclick",function(){console.log("Edit" + term);});
+                item.innerHTML = term;
+                mainForm.appendChild(item);
+            }
+        );
+    </script>
+</html>
