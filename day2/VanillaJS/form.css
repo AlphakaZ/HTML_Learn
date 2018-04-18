@@ -33,15 +33,20 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 
-#task-checkButton{
-    width:50px;
+.task-elements{
+    border: none;
+    box-shadow: 0;
+}
+
+input#task-checkButton{
+    width:62px;
     height:62px;
     margin: auto;
     background-color: rgb(244, 244, 244);
 }
 
-#task-text{
-    width:500px;
+input#task-text{
+    width: auto;
     height:62px;
     font-size: 24px;
     font-weight: 300;
@@ -49,11 +54,14 @@ body{
     background-color: rgb(244, 244, 244);
 }
 
-#task-removeButton{
-    width:50px;
+input#task-removeButton{
+    width:62px;
     height:62px;
-    background-color: rgb(244, 244, 244);
+    background-color: rgb(244,244,244);
     text-align: center;
+}
+input.task-elements:hover + #task-removeButton{
+    background-color: rgb(255, 0, 0);
 }
 
 form#task{
