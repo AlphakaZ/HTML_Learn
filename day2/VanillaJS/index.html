@@ -9,12 +9,20 @@
         <header id="header">
             todos
         </header>
-        <main id="main">
-            <form id="task-create">
-                <input type="text" name = "_text" class="form-box" placeholder="What needs to be done?" onkeydown="submitNewTask();"/>
-            </form>
-        </main>
-        <table id = "taskTable" class = "form-box"></table>
+        <form>
+            <table id="mainTable" class="table">
+                <tr>
+                    <tb>
+                        <input type="button" id = "clear-form" name = "_clearButton" onclick=""/>
+                    </tb>
+                    <tb>
+                        <input type="text" id = "main-form" name = "_mainForm" class="main-form" placeholder="What needs to be done?" onkeydown="submitNewTask();"/>
+                    </tb>
+                </tr>
+            <table id = "subTable" class="table">
+                    <!-- ここにスクリプトで過去タスクを並べる -->
+            </table>
+        </form>
         <footer id="footer">
             Double-click to edit a todo<br>
             Created by Oscar Godson<br>
