@@ -71,30 +71,33 @@ function getTaskForm(row, titleText){
     item3.appendChild(getDeleteButton());
     // return item;
 }
-termList = 0;
-if(termList){
 
+taskList = ["a","b","c"];
+function loadTaskListFromLocalStrage(){
+    var rawData = localStorage.getItem("data");
+    taskList = JSON.parse(rawData);
+    console.log(taskList);
+    if(taskList == null){taskList = []};
 }
-
-var rawData = localStorage.getItem("data");
-termList = JSON.parse(rawData);
 
 function saveTaskListToLocalStrage(){
     var data = JSON.stringify(taskList);
     localStorage.setItem("data",data);    
 }
 
-// function go()
-// {
-//     if(window.event.keyCode==13){
-//         console.log("押された");
-//         var form = document.getElementById("task-create");
-//         termList.push('追加');
-//         form.submit();
-//     }
-// }
+function submitNewTask()
+{
+    if(window.event.keyCode==13){
+        console.log("押された");
+        var form = document.getElementById("task-create");
+        taskList.push('追加');
+        saveTaskListToLocalStrage();
+        form.submit();
+    }
+}
 
-function makeTable(termList){
+function makeTable(taskList){
+
     var table = document.createElement("table");
     table.id = "form-box";
     taskList.forEach(
@@ -109,6 +112,6 @@ function makeTable(termList){
 
 window.onload = function(){
     //実際はここでローカルストレージから読み込む
-    
-    makeTable(termList);
+    loadTaskListFromLocalStrage();
+    makeTable(taskList);
 }
