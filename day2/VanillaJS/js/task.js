@@ -5,36 +5,27 @@ class task{
     }
 }
 
-function wrapWithTdElement(formElement){
-    var tdBox = document.createElement("td");
-
-    var form = document.createElement("form");
-    form.appendChild(formElement);
-
-    tdBox.appendChild(form);
-    return tdBox;
-}
-
-function getCheckButton()
+function getCheckButton(titleText)
 {//チェックボタンを作る
     var item = document.createElement('input');
     item.setAttribute("type","checkbox");    
     item.setAttribute("value","1");
-    item.className = "task-checkButton";
+    item.setAttribute("name",titleText);
+    item.id = "task-checkButton";
 
     // item.addEventListener("click",function(){console.log(term);});
     // item.addEventListener("dblclick",function(){console.log("Edit" + term);});
 
-    //click時にシグナルを送信する設定も必要
-    // return wrapWithTdElement(item);
     return item;
 }
 
 function getTitleTextForm(titleText)
 {//中央のタイトルフォームを作る。ダブルクリック時の対応なども
     var item = document.createElement('input');
-    item.setAttribute("type","text");    
+    item.setAttribute("type","text");
     item.setAttribute("value",titleText);
+    item.setAttribute("name",titleText);
+    item.id = "task-text";
     // item.setAttribute("readOnly","true");
     item.className = "task-text";
 
@@ -44,17 +35,36 @@ function getTitleTextForm(titleText)
            console.log(titleText);
        }
     });
-
-    // return wrapWithTdElement(item);
     return item;
 }
 
-function getDeleteButton()
+function deleteElement(elem){
+    //elemから、タスク名を取り出す。
+    var text = elem.getAttribute("name");
+    console.log(text);
+    
+    var res = [];
+    taskList.forEach(function(task){
+        if(task !== text){
+            res.push(task);
+        }
+    });
+    taskList = res;
+    saveTaskListToLocalStrage();
+    location.reload();    
+}
+//唯一idで区別しないといけない
+
+var indexCounter = 0;
+
+function getDeleteButton(titleText)
 {
     var item = document.createElement('input');
     item.setAttribute("type","button");
-    item.setAttribute("name","remove");
-    item.className = "task-removeButton";
+    item.setAttribute("name",titleText);
+    item.setAttribute("onclick","deleteElement(this)");
+    item.id = "task-removeButton";
+    item.innerHTML = "x";
 
     // return wrapWithTdElement(item);
     return item;
@@ -65,14 +75,14 @@ function getTaskForm(row, titleText){
     var item1 = row.insertCell(-1);
     var item2 = row.insertCell(-1);
     var item3 = row.insertCell(-1);
+    // item2.setAttribute("width","500px");
 
-    item1.appendChild(getCheckButton());
+    item1.appendChild(getCheckButton(titleText));
     item2.appendChild(getTitleTextForm(titleText));
-    item3.appendChild(getDeleteButton());
+    item3.appendChild(getDeleteButton(titleText));
     // return item;
 }
 
-taskList = ["a","b","c"];
 function loadTaskListFromLocalStrage(){
     var rawData = localStorage.getItem("data");
     taskList = JSON.parse(rawData);

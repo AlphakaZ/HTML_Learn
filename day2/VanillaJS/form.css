@@ -11,6 +11,7 @@ body{
     font-family: 'Gulim';
     font-weight: 100;
 }
+
 #footer{
     color: gray;
     font-size: 10px;
@@ -22,7 +23,7 @@ body{
 
 .form-box{
     margin: 0 auto; 
-    width:550px;
+    width:600px;
     height:62px;
     border: none;
     box-shadow: 1px 2px 1px 2px lightgray;
@@ -30,6 +31,29 @@ body{
     font-weight: 300;
     color: rgb(40, 40, 40);
     -webkit-font-smoothing: antialiased;
+}
+
+#task-checkButton{
+    width:50px;
+    height:62px;
+    margin: auto;
+    background-color: rgb(244, 244, 244);
+}
+
+#task-text{
+    width:500px;
+    height:62px;
+    font-size: 24px;
+    font-weight: 300;
+    color: rgb(40, 40, 40);
+    background-color: rgb(244, 244, 244);
+}
+
+#task-removeButton{
+    width:50px;
+    height:62px;
+    background-color: rgb(244, 244, 244);
+    text-align: center;
 }
 
 form#task{
