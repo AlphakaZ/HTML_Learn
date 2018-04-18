@@ -90,7 +90,11 @@ function submitNewTask()
     if(window.event.keyCode==13){
         console.log("押された");
         var form = document.getElementById("task-create");
-        taskList.push('追加');
+        var taskName = form._text.value;
+        if(taskName === ""){
+            return false;
+        }
+        taskList.push(taskName);
         saveTaskListToLocalStrage();
         form.submit();
     }
