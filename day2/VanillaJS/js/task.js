@@ -26,7 +26,8 @@ function getCheckButton(task)
 {//チェックボタンを作る
     var item = document.createElement('input');
     item.setAttribute("type","checkbox");    
-    item.setAttribute("value",task.checked);
+    // item.setAttribute("checked",task.checked);
+    item.checked = task.checked;
     item.setAttribute("name",task.title);
     item.setAttribute("task-index",task.index);
     item.id = "task-checkButton";
@@ -41,6 +42,8 @@ function getTitleTextForm(task)
     item.setAttribute("value",task.title);
     item.setAttribute("name",task.title);
     item.setAttribute("task-index",task.index);
+    // item.setAttribute("onclick","checkElement(this)");
+    item.onclick = "checkElement(this);";
     item.id = "task-text";
     // item.setAttribute("readOnly","true");
     item.className = "task-elements";
@@ -85,6 +88,21 @@ function deleteElement(elem){
     taskList = res;
     saveTaskListToLocalStrage();
     location.reload();    
+}
+
+function checkElement(elem){
+    // var checked = elem.getAttribute("checked");
+    var checked = elem.checked;
+    console.log(checked);
+    
+    var index = elem.getAttribute("task-index");
+    taskList.forEach(function(task){
+        if(task.index == index){
+            task.checked = elem.checked;
+        }
+    });
+    saveTaskListToLocalStrage();
+    location.reload();
 }
 
 
