@@ -1,5 +1,11 @@
 // //タスク管理クラス
 
+function reloadList(){
+    saveTaskListToLocalStrage();
+    location.reload();//ページ読み込みではなく、タスクだけを再構築するようにする
+    // makeTable();
+}
+
 function deleteElement(index){
     console.log(index);
     var res = [];
@@ -9,8 +15,20 @@ function deleteElement(index){
         }
     });
     taskList = res;
-    saveTaskListToLocalStrage();
-    location.reload();    
+    reloadList();
+}
+
+function deleteAllElements(){
+    taskList = [];
+    console.log("All clear!");
+    reloadList();
+}
+
+function checkAllElements(checked){
+    taskList.forEach(function(task){
+        task.checked = checked;
+    });
+    reloadList();
 }
 
 function checkElement(index,checked){
@@ -20,8 +38,7 @@ function checkElement(index,checked){
             task.checked = checked;
         }
     });
-    saveTaskListToLocalStrage();
-    location.reload();
+    reloadList();
 }
 
 function changeElementTitle(index, newText){
@@ -30,8 +47,7 @@ function changeElementTitle(index, newText){
             task.title = newText;
         }
     });
-    saveTaskListToLocalStrage();
-    location.reload();
+    reloadList();
 }
 
 //エンターキーが押されたら、新しいタスクを追加する。
@@ -45,8 +61,7 @@ function submitNewTask()
             return false;
         }
         taskList.push(new Task(taskName));
-        saveTaskListToLocalStrage();
-        form.submit();
+        reloadList();
     }
 }
 
@@ -73,12 +88,20 @@ function makeTable(taskList){
         }
     );
     var parent = document.getElementById("subTable");
+    parent.childNodes = new Array();
     parent.appendChild(table);
 }
 
+(
+    function initPage(){
+        var item = document.getElementById("all-toggle-button");
+        item.addEventListener("click",function(){
+            checkAllElements(item.checked);//ブラウザを再読み込みするため機能しない
+        });
+    }
+)();
+
 window.onload = function(){
-    //実際はここでローカルストレージから読み込む
-    // this.localStorage.clear();
     loadTaskListFromLocalStrage();
     makeTable(taskList);
 }

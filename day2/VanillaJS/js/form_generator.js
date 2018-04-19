@@ -8,7 +8,7 @@ function getCheckButton(task)
     item.setAttribute("task-index",task.index);
 
     item.checked = task.checked;
-    item.className =  "task-elements sub-task-checkbox";
+    item.className =  "task-elements task-checkbox";
 
     item.addEventListener("click",function(){
         checkElement(item.getAttribute("task-index"),item.checked);
@@ -27,7 +27,7 @@ function getTitleTextForm(task)
     item.setAttribute("task-index",task.index);
     item.readOnly = true;
     item.onclick = "checkElement(this);";
-    item.className = "task-elements sub-task-text";
+    item.className = "task-elements task-text";
 
     item.addEventListener("dblclick",function(){
        if(item.readOnly){
@@ -51,8 +51,8 @@ function getDeleteButton(task)
     item.setAttribute("name",task.name);
     // item.setAttribute("onclick","deleteElement(this)");
     item.setAttribute("task-index",task.index);
-    item.className =  "task-elements sub-task-checkbox";
-    item.innerHTML = "x";
+    item.className =  "task-elements task-removeButton";
+    item.innerHTML = '×';
 
     item.addEventListener("click",function(){
         deleteElement(item.getAttribute("task-index"));

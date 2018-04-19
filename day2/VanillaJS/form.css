@@ -33,32 +33,44 @@ form{
     -webkit-font-smoothing: antialiased;
     text-align: center;
 }
+form#sub-form{
+    margin: 0 auto; 
+    width:600px;
+    height:62px;
+    border: none;
+    box-shadow: 1px 2px 1px 2px lightgray;
+    font-size: 24px;
+    font-weight: 300;
+    color: rgb(40, 40, 40);
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
 
 .task-elements{
     border: none;
     box-shadow: 0;
 }
 
-input#task-checkButton{
-    width:62px;
-    height:62px;
+input.task-checkBox{
+    width:62px !important;
+    height:62px !important;
     margin: auto;
     background-color: rgb(244, 244, 244);
 }
 
-input#task-text{
-    width: auto;
-    height:62px;
+input.task-text{
+    width: auto !important;
+    height:62px !important;
     font-size: 24px;
     font-weight: 300;
     color: rgb(40, 40, 40);
-    background-color: rgb(244, 244, 244);
+    background-color: white;
 }
 
-input#task-removeButton{
-    width:62px;
-    height:62px;
-    background-color: rgb(244,244,244);
+input.task-removeButton{
+    width:62px !important;
+    height:62px !important;
+    background-color: red;
     text-align: center;
 }
 input.task-elements:hover + #task-removeButton{
