@@ -9,20 +9,25 @@
         <header id="header">
             todos
         </header>
-        <form>
-            <table id="mainTable" class="table">
-                <tr>
-                    <tb>
-                        <input type="button" id = "clear-form" name = "_clearButton" onclick=""/>
-                    </tb>
-                    <tb>
-                        <input type="text" id = "main-form" name = "_mainForm" class="main-form" placeholder="What needs to be done?" onkeydown="submitNewTask();"/>
-                    </tb>
-                </tr>
-            <table id = "subTable" class="table">
-                    <!-- ここにスクリプトで過去タスクを並べる -->
-            </table>
-        </form>
+        <div id="main-content">
+            <form id="main-form">
+                <div id="mainTable" class="table">
+                    <tr>
+                        <tb>
+                            <input type="button" name = "_clearButton" class = "clear-form" onclick=""/>
+                        </tb>
+                        <tb>
+                            <input type="text" id = "id_main_text" name = "_mainForm" class="main-text-form" placeholder="What needs to be done?" onkeydown="submitNewTask();"/>
+                        </tb>
+                    </tr>
+                </div>
+            </form>
+            <form id="sub-form">
+                <div id = "subTable" class="table">
+                        <!-- ここにスクリプトで過去タスクを並べる -->
+                </div>
+            </form>
+        </div>
         <footer id="footer">
             Double-click to edit a todo<br>
             Created by Oscar Godson<br>
@@ -30,5 +35,8 @@
             Part of TodoMVC<br>
         </footer>
     </body>
-    <script src="js/task.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/task_model.js"></script>
+    <script src="js/form_generator.js"></script>
+    <script src="js/controller.js"></script>
 </html>

@@ -1,7 +1,10 @@
 
 
-
-var taskList = [];
+(
+    function initTaskList(){
+        taskList = [];
+    }
+)();
 
 //ローカルストレージへの読み書き関数
 function loadTaskListFromLocalStrage(){
@@ -18,7 +21,7 @@ function saveTaskListToLocalStrage(){
 }
 
 //taskListに入っているTaskの中で、最も大きなインデックスを返す(一意性の保持)
-function getMaxIndexFromTaskList(){
+function getMaxIndexFromList(){
     var max = 0;
     if(taskList == null){
         return 0;

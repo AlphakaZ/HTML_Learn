@@ -1,9 +1,7 @@
 // //タスク管理クラス
 
-function deleteElement(elem){
-    var index = elem.getAttribute("task-index");
+function deleteElement(index){
     console.log(index);
-
     var res = [];
     taskList.forEach(function(task){
         if(task.index != index){
@@ -15,14 +13,21 @@ function deleteElement(elem){
     location.reload();    
 }
 
-function checkElement(elem){
-    var checked = elem.checked;
-    var index = elem.getAttribute("task-index");
-
+function checkElement(index,checked){
     console.log(checked);
     taskList.forEach(function(task){
         if(task.index == index){
-            task.checked = elem.checked;
+            task.checked = checked;
+        }
+    });
+    saveTaskListToLocalStrage();
+    location.reload();
+}
+
+function changeElementTitle(index, newText){
+    taskList.forEach(function(task){
+        if(task.index == index){
+            task.title = newText;
         }
     });
     saveTaskListToLocalStrage();
@@ -34,8 +39,8 @@ function submitNewTask()
 {
     if(window.event.keyCode==13){
         console.log("押された");
-        var form = document.getElementById("task-create");
-        var taskName = form._text.value;
+        var form = document.getElementById("main-form");
+        var taskName = form.id_main_text.value;
         if(taskName === ""){
             return false;
         }
@@ -48,11 +53,10 @@ function submitNewTask()
 //タスクテーブルを生成する。
 function makeTable(taskList){
     function getTaskForm(row, titleText){
-        // var item = document.createElement("tr");
+        //それぞれチェッカー,編集,deleteボタン
         var item1 = row.insertCell(-1);
         var item2 = row.insertCell(-1);
         var item3 = row.insertCell(-1);
-        // item2.setAttribute("width","500px");
 
         item1.appendChild(getCheckButton(titleText));
         item2.appendChild(getTitleTextForm(titleText));
@@ -68,7 +72,7 @@ function makeTable(taskList){
             getTaskForm(row,task);
         }
     );
-    var parent = document.getElementById("taskTable");
+    var parent = document.getElementById("subTable");
     parent.appendChild(table);
 }
 
