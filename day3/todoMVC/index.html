@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="design.css">
+        <title>VanillaJS TodoMVC</title>
+    </head>
+    <body>
+        <header id="header">
+            todos
+        </header>
+        <div id="main-content">
+            <table id="main-table" class="form-table">
+                <tr>
+                    <!-- <form id="main-form"> -->
+                        <td>
+                            <input type="checkbox" class="checkbox"/>
+                        </tb>
+                        <td>
+                            <input type="text" id = "id_main_text" name = "main-text" class="main-text-form text" placeholder="What needs to be done?"/>
+                        </td>
+                    <!-- </form> -->
+                </tr>
+            </table>
+            
+            <!-- <form id="sub-form"> -->
+                        <!-- ここにスクリプトで過去タスクを並べる -->
+            <table class="form-table" id = "sub-table">
+                
+            </table>
+            <!-- </form> -->
+        </div>
+        <footer id="footer">
+            Double-click to edit a todo<br>
+            Created by Oscar Godson<br>
+            Refactored by Christoph Burgmer<br>
+            Part of TodoMVC<br>
+        </footer>
+    </body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.tmplPlus.js"></script>
+    <script src="js/task_model.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/main.js"></script>
+</html>

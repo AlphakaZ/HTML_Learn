@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="form.css">
+        <title>VanillaJS TodoMVC</title>
+    </head>
+    <body>
+        <header id="header">
+            todos
+        </header>
+        <div id="content">
+            <div id="main-content">
+                <table><tr class = "task single-task">
+                        <td><input type='checkbox' class = "task-checkbox task" id="select-all-checkbox"/></td>
+                        <td><input type='text'  id="title" class = "task-title task" value="" placeholder="What needs to be done?"/></td>     
+                </tr></table>
+            </div>
+            <div id="sub-content"></div>
+            <footer id="controller-footer"></footer>
+            
+        </div>
+        <footer id="footer">
+            Double-click to edit a todo<br>
+            Created by Oscar Godson<br>
+            Refactored by Christoph Burgmer<br>
+            Part of TodoMVC<br>
+        </footer>
+    </body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/main.js"></script>
+</html>

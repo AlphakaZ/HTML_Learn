@@ -1,0 +1,36 @@
+body{
+    margin: 0 auto;
+    width:600px;
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+}
+
+#header{
+    color: rgb(229, 205, 208);
+    font-size: 100px;
+    font-family: 'Gulim';
+    font-weight: 100;
+}
+
+#footer{
+    color: gray;
+    font-size: 10px;
+    font-family: 'Gulim';
+    font-weight: 100;
+    line-height: 200%;
+    margin-top: 5em;
+}
+/* 
+.form-table td{
+    border: solid 1px,black;
+    margin: 0 auto; 
+    width:600px;
+    height:62px;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    color: rgb(40, 40, 40);
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    border: solid 1px black;
+} */
